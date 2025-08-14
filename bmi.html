@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI - FitMetricTools</title>
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Simple BMI Calculator" />
+  <meta name="keywords" content="BMI calculator, fitness, TDEE, health, nutrition, US units, metric units" />
+  <meta name="author" content="Ege Abiad" />
+  <!-- link canonical -->
+  <meta property="og:title" content="Calorie Calculator" />
+  <meta property="og:description" content="Simple BMI Calculator" />
+  <meta property="og:type" content="website" />
+  <!-- link og:url -->
+  <!-- link og:image -->
+  <meta property="og:site_name" content="BMI Calculator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calorie Calculator" />
+  <meta name="twitter:description" content="Simple BMI Calculator" />
+  <!-- link twitter:image -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="BMI CHART CSS+JS/bmi-chart.css" />
+  <link rel="stylesheet" href="bmi.css"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header role="banner">
+    <h1><a id="a-title" href="index.html" aria-label="Homepage link to FitMetricTools">Fit<span class="bold">MetricTools</span></a></h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+
+      <div aria-label="Dropdown" class="dropdown">
+    <button aria-haspopup="true" aria-expanded="false" role="button" class="dropbtn">Calculators ▼
+      <i role="img" aria-hidden="true" class="fa fa-caret-down"></i>
+    </button>
+    <div role="menu" aria-label="Dropdown menu" class="dropdown-content">
+      <a role="menuitem" href="index.html">Calorie Calculator</a>
+      <a role="menuitem" href="bmi.html">BMI Calculator</a>
+      <a role="menuitem" href="macro.html">Macro Calculator</a>
+      <a role="menuitem" href="bf.html">Body Fat Calculator</a>
+      <a role="menuitem" href="onerepmax.html">OneRepMax(1RM) Calculator</a>
+    </div>
+  </div>
+      <ul class="main-ul" role="menubar" aria-label="Main menu">
+      
+        
+        <li class="nav-item" role="menuitem"><a href="about.html" aria-label="About">FAQ</a></li>
+        <li class="nav-item" role="menuitem"><a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="presentation">
+      <h2>BMI Calculator</h2>
+      <p>
+        <span class="bold">BMI (Body Mass Index)</span> is a simple calculation used to estimate whether a person has a healthy body weight for their height. It's commonly used as a general screening tool to categorize individuals into weight ranges.
+      </p>
+    </div>
+
+
+    <!-- Unit Toggle -->
+    <nav aria-label="Unit selection">
+      <ul id="unit-nav" style="display: flex; justify-content: center; gap: 24px; list-style: none; padding: 0; margin-bottom: 20px;" role="menubar">
+        <li role="menuitem"><a href="#" id="us-unit" class="unit-link" aria-label="Select US Units">US Units</a></li>
+        <li role="menuitem"><a href="#" id="metric-unit" class="unit-link active-unit" aria-label="Select Metric Units">Metric Units</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Form -->
+    <form id="calorie-form" name="calorie-form" aria-labelledby="form-title">
+      <table style="width:100%; border-collapse:separate; border-spacing:1.5em;">
+       
+        <!-- Metric Weight -->
+        <tr id="row-weight-metric">
+          <td><label for="weight-kg">Weight:</label></td>
+          <td>
+            <input type="number" name="weight" id="weight-kg" placeholder="kg" aria-label="Weight in kilograms"  min="30" max="300" />
+            
+          </td>
+        </tr>
+
+        <!-- Metric Height -->
+        <tr id="row-height-metric">
+          <td><label for="height-cm">Height:</label></td>
+          <td>
+            <input type="number" name="height-cm" id="height-cm" placeholder="cm" aria-label="Height in centimeters"  min="100" max="250" />
+            
+          </td>
+        </tr>
+
+        <!-- US Weight -->
+        <tr id="row-weight-us" style="display:none;">
+          <td><label for="weight-lbs">Weight:</label></td>
+          <td>
+            <input type="number" name="weight-lbs" id="weight-lbs" placeholder="lbs" aria-label="Weight in pounds"  min="66" max="660" />
+            
+          </td>
+        </tr>
+
+        <!-- US Height -->
+        <tr id="row-height-us" style="display:none;">
+          <td><label for="height-ft">Height:</label></td>
+          <td>
+            <input type="number" name="height-ft" id="height-ft" placeholder="ft" aria-label="Height in feet"  min="3" max="8" />
+            <input type="number" name="height-in" id="height-in" placeholder="in" aria-label="Height in inches"  min="0" max="11" />
+          </td>
+        </tr>
+
+        <!-- Buttons -->
+        <tr>
+          <td colspan="2" style="text-align:center; padding-top:16px;">
+            <button type="submit" id="bmi-btn" class="submit-btn">Calculate</button>
+            <button type="reset" id="reset-btn" class="submit-btn" style="background:#888; margin-left:10px;">Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <!-- Result Area -->
+    <div class="bmi-result" id="result" aria-live="polite"></div>
+    <div id="bmi-chart" class="bmi-chart" role="img" aria-label="BMI Chart" style="display:none;">
+      <div aria-hidden="true" class="bmi-bar">
+        <div class="range underweight">Underweight</div>
+        <div class="range normal">Normal</div>
+        <div class="range overweight">Overweight</div>
+        <div class="range obese">Obese</div>
+      </div>
+      <div id="bmi-marker" class="bmi-marker">▲</div>
+    </div>
+  </div>
+  
+  
+
+  <footer role="contentinfo">
+  <section>
+    <h4>Menu</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      
+    </ul>
+  </section>
+  <section>
+    <h4>Contact</h4>
+    <ul>
+      <li>Email & Feedback: <a href="mailto:egeabiad@gmail.com">egeabiad@gmail.com</a></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Credits</h4>
+    <ul>
+      <li>Created by Ege Abiad</li>
+    </ul>
+  </section>
+  <section style="width:100%;text-align:center;margin-top:16px;">
+    <p style="font-size:13px;color:#e0eafc;">&copy; 2025 FitMetricTools. All rights reserved.</p>
+  </section>
+</footer>
+
+
+
+    
+    <script src="bmi.js" defer></script>
+  
+</body>
+
+
+</html>

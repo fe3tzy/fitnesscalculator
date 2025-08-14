@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calorie Calculator - FitMetricTools</title>
+  <meta name="description" content="Estimate your daily calorie expenditure with this easy-to-use fitness tracker. Supports US and Metric units." />
+  <meta name="keywords" content="calorie calculator, fitness, TDEE, health, nutrition, US units, metric units" />
+  <meta name="author" content="Ege Abiad" />
+  <!-- link canonical -->
+  <meta property="og:title" content="Calorie Calculator" />
+  <meta property="og:description" content="Estimate your daily calorie expenditure with this easy-to-use fitness tracker. Supports US and Metric units." />
+  <meta property="og:type" content="website" />
+  <!-- link og:url -->
+  <!-- link og:image -->
+  <meta property="og:site_name" content="Calorie Calculator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calorie Calculator" />
+  <meta name="twitter:description" content="Estimate your daily calorie expenditure with this easy-to-use fitness tracker." />
+  <!-- link twitter:image -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  
+</head>
+
+<body>
+  <header role="banner">
+    <h1><a id="a-title" href="index.html" aria-label="Homepage link to FitMetricTools">Fit<span class="bold">MetricTools</span></a></h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+
+      <div aria-label="Dropdown" class="dropdown">
+    <button aria-haspopup="true" aria-expanded="false" role="button" class="dropbtn">Calculators ▼
+      <i role="img" aria-hidden="true" class="fa fa-caret-down"></i>
+    </button>
+    <div role="menu" aria-label="Dropdown menu" class="dropdown-content">
+      <a role="menuitem" href="index.html">Calorie Calculator</a>
+      <a role="menuitem" href="bmi.html">BMI Calculator</a>
+      <a role="menuitem" href="macro.html">Macro Calculator</a>
+      <a role="menuitem" href="bf.html">Body Fat Calculator</a>
+      <a role="menuitem" href="onerepmax.html">OneRepMax(1RM) Calculator</a>
+
+    </div>
+  </div>
+      <ul class="main-ul" role="menubar" aria-label="Main menu">
+      
+        
+        <li id="nav-about" class="nav-item" role="menuitem"><a href="about.html" aria-label="About">FAQ</a></li>
+        <li class="nav-item" role="menuitem"><a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="presentation">
+      <h2>Calorie Expenditure Calculator</h2>
+      <p>
+        This Calorie Expenditure Calculator helps you estimate how many calories you burn each day based on your age, gender, weight, height, and activity level. Whether you're aiming to lose weight, gain muscle, or maintain your current physique, knowing your Total Daily Energy Expenditure (TDEE) is a crucial first step. Simply input your details and get instant results to guide your nutrition and fitness goals.
+      </p>
+    </div>
+
+    
+    
+
+    <!-- Unit Toggle -->
+    <nav aria-label="Unit selection">
+      <ul id="unit-nav" style="display: flex; justify-content: center; gap: 24px; list-style: none; padding: 0; margin-bottom: 20px;" role="menubar">
+        <li role="menuitem"><a href="#" id="us-unit" class="unit-link" aria-label="Select US Units">US Units</a></li>
+        <li role="menuitem"><a href="#" id="metric-unit" class="unit-link active-unit" aria-label="Select Metric Units">Metric Units</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Form -->
+    <form id="calorie-form" name="calorie-form" aria-labelledby="form-title">
+      <table style="width:100%; border-collapse:separate; border-spacing:1em;">
+        <tr>
+          <td><label for="age">Age:</label></td>
+          <td>
+            <input type="number" name="age" id="age" required aria-label="Enter your age" aria-required="true" min="10" max="120" />
+            
+          </td>
+        </tr>
+
+        <!-- Metric Weight -->
+        <tr id="row-weight-metric">
+          <td><label for="weight-kg">Weight:</label></td>
+          <td>
+            <input type="number" name="weight" id="weight-kg" placeholder="kg" aria-label="Weight in kilograms"  min="30" max="300" />
+            
+          </td>
+        </tr>
+
+        <!-- Metric Height -->
+        <tr id="row-height-metric">
+          <td><label for="height-cm">Height:</label></td>
+          <td>
+            <input type="number" name="height-cm" id="height-cm" placeholder="cm" aria-label="Height in centimeters"  min="100" max="250" />
+            
+          </td>
+        </tr>
+
+        <!-- US Weight -->
+        <tr id="row-weight-us" style="display:none;">
+          <td><label for="weight-lbs">Weight:</label></td>
+          <td>
+            <input type="number" name="weight-lbs" id="weight-lbs" placeholder="lbs" aria-label="Weight in pounds"  min="66" max="660" />
+            
+          </td>
+        </tr>
+
+        <!-- US Height -->
+        <tr id="row-height-us" style="display:none;">
+          <td><label for="height-ft">Height:</label></td>
+          <td>
+            <input type="number" name="height-ft" id="height-ft" placeholder="ft" aria-label="Height in feet"  min="3" max="8" />
+            <input type="number" name="height-in" id="height-in" placeholder="in" aria-label="Height in inches"  min="0" max="11" />
+          </td>
+        </tr>
+
+        <!-- Gender -->
+        <tr>
+          <td><label>Gender:</label></td>
+          <td id="radio-labels">
+            <input type="radio" id="male" name="gender" value="male" />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female" />
+            <label for="female">Female</label>
+            
+          </td>
+        </tr>
+
+        <!-- Activity Level -->
+        <tr>
+          <td><label for="activity-level">Activity Level:</label></td>
+          <td>
+            <select id="activity-level" name="activity-level">
+              <option value="sedentary">Sedentary (office job)</option>
+              <option value="lightly-active">Lightly Active (1–2 days/week)</option>
+              <option value="moderately-active">Moderately Active (3–4 days/week)</option>
+              <option value="very-active">Very Active (4–5 days/week)</option>
+              <option value="athlete">Athlete (6–7 days/week)</option>
+            </select>
+            
+            </select>
+          </td>
+        </tr>
+
+        <!-- Body Fat -->
+        <tr>
+          <td><label for="bf">Body Fat:</label></td>
+          <td>
+            <input type="number" name="bf" id="bf" placeholder="%" aria-label="Body fat percentage" min="1" max="70" /> (optional)
+            
+          </td>
+        </tr>
+
+        <!-- Buttons -->
+        <tr>
+          <td colspan="2" style="text-align:center; padding-top:16px;">
+            <button type="submit" class="submit-btn">Calculate</button>
+            <button type="reset" id="reset-btn" class="submit-btn" style="background:#888; margin-left:10px;">Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <!-- Result Area -->
+    <div id="result" class="index-result" aria-live="polite"></div>
+  </div>
+  
+
+<div class="tdee-breakdown" aria-labelledby="tdee-breakdown-title">
+  <h2 id="tdee-breakdown-title">What Makes Up Your TDEE?</h2>
+  <div class="tdee-boxes">
+
+    <div class="tdee-part">
+      <h3>BMR</h3>
+      <p><strong>~60–70%</strong> of TDEE</p>
+      <p>Calories burned at rest for basic body functions (e.g., breathing, circulation).</p>
+    </div>
+    <div class="tdee-part">
+      <h3>TEF</h3>
+      <p><strong>~10%</strong> of TDEE</p>
+      <p>Calories burned to digest, absorb, and process food.</p>
+    </div>
+    <div class="tdee-part">
+      <h3>NEAT</h3>
+      <p><strong>~10–20%</strong> of TDEE</p>
+      <p>Calories burned during daily activities (walking, fidgeting, chores).</p>
+    </div>
+    <div class="tdee-part">
+      <h3>EAT</h3>
+      <p><strong>~5–15%</strong> of TDEE</p>
+      <p>Calories burned through intentional exercise or sports.</p>
+    </div>
+
+  </div>
+  
+  <div class="tdee-pie-chart" role="img" aria-label="Pie chart showing TDEE components">
+
+  <div class="pie-chart">
+    <span class="label bmr">BMR<br>65%</span>
+    <span class="label tef">TEF<br>10%</span>
+    <span class="label neat">NEAT<br>15%</span>
+    <span class="label eat">EAT<br>10%</span>
+  </div>
+
+  <ul class="legend">
+    <li><span class="color bmr"></span> BMR (60-70%)</li>
+    <li><span class="color tef"></span> TEF (10%)</li>
+    <li><span class="color neat"></span> NEAT (10-20%)</li>
+    <li><span class="color eat"></span> EAT (5-15%)</li>
+  </ul>
+</div>
+
+
+</div>
+
+  <footer>
+  <section>
+    <h4>Menu</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      
+    </ul>
+  </section>
+  <section>
+    <h4>Contact</h4>
+    <ul>
+      <li>Email & Feedback: <a href="mailto:egeabiad@gmail.com">egeabiad@gmail.com</a></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Credits</h4>
+    <ul>
+      <li>Created by <span class="bold">Ege Abiad</span></li>
+    </ul>
+  </section>
+  <section style="width:100%;text-align:center;margin-top:16px;">
+    <p style="font-size:13px;color:#e0eafc;">&copy; 2025 FitMetricTools. All rights reserved.</p>
+  </section>
+</footer>
+
+
+
+
+    
+  <script src="script.js" ></script>
+
+</body>
+
+
+</html>

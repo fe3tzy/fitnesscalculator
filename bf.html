@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Body Fat % Calculator - FitMetricTools</title>
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Calculate your body fat percentage easily" />
+  <meta name="keywords" content="Body Fat calculator, fitness, TDEE, health, nutrition, US units, metric units" />
+  <meta name="author" content="Ege Abiad" />
+  <!-- link canonical -->
+  <meta property="og:title" content="Body Fat % Calculator" />
+  <meta property="og:description" content=" Calculate your body fat percentage easily" />
+  <meta property="og:type" content="website" />
+  <!-- link og:url -->
+  <!-- link og:image -->
+  <meta property="og:site_name" content="Body Fat Calculator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Body Fat % Calculator" />
+  <meta name="twitter:description" content="Calculate your body fat percentage easily" />
+  <!-- link twitter:image -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bf.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header role="banner">
+    <h1><a id="a-title" href="index.html" aria-label="Homepage link to FitMetricTools">Fit<span class="bold">MetricTools</span></a></h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+
+      <div aria-label="Dropdown" class="dropdown">
+    <button aria-haspopup="true" aria-expanded="false" role="button" class="dropbtn">Calculators ▼
+      <i role="img" aria-hidden="true" class="fa fa-caret-down"></i>
+    </button>
+    <div role="menu" aria-label="Dropdown menu" class="dropdown-content">
+      <a role="menuitem" href="index.html">Calorie Calculator</a>
+      <a role="menuitem" href="bmi.html">BMI Calculator</a>
+      <a role="menuitem" href="macro.html">Macro Calculator</a>
+      <a role="menuitem" href="bf.html">Body Fat Calculator</a>
+      <a role="menuitem" href="onerepmax.html">OneRepMax(1RM) Calculator</a>
+
+    </div>
+  </div>
+      <ul class="main-ul" role="menubar" aria-label="Main menu">
+      
+        
+        <li class="nav-item" role="menuitem"><a href="about.html" aria-label="About">FAQ</a></li>
+        <li class="nav-item" role="menuitem"><a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <body>
+  <main class="container">
+    <div class="presentation">
+    <h2>Body Fat % Calculator</h2>
+    <p>
+        <span class="bold">Body fat %</span> shows how much of your body is fat compared to lean mass. This calculator uses the <span class="bold">U.S. Navy Method</span> to estimate it based on your measurements—helping you track fitness and health more accurately than just weight or BMI.
+    </p>
+    </div>
+    <section id="bf-chart">
+  <h2>Categories</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Men (%)</th>
+        <th>Women (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="essential">
+        <td>Essential Fat</td>
+        <td>2–5%</td>
+        <td>10–13%</td>
+      </tr>
+      <tr class="athletes">
+        <td>Athletes</td>
+        <td>6–13%</td>
+        <td>14–20%</td>
+      </tr>
+      <tr class="fitness">
+        <td>Fitness</td>
+        <td>14–17%</td>
+        <td>21–24%</td>
+      </tr>
+      <tr class="average">
+        <td>Average</td>
+        <td>18–24%</td>
+        <td>25–31%</td>
+      </tr>
+      <tr class="obese">
+        <td>Obese</td>
+        <td>25%+</td>
+        <td>32%+</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+    
+    <form id="bf-form" name="bf-form" aria-labelledby="form-title">
+        <table style="width:100%; border-collapse:separate; border-spacing:0 12px;">
+        <tr>
+            <td>
+      <label for="gender">Gender:</label>
+            </td>
+            <td>
+      <select id="gender" required name="gender" aria-label="Select your gender" aria-required="true">
+        <option value="" disabled selected>Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      </td>
+      </tr>
+      <tr>
+       <td> <label for="height">Height (cm):</label> </td> 
+      <td> <input type="number" id="height" name="height" required aria-label="Type your height in cm" aria-required="true"/> </td>
+      </tr>
+      
+      <tr>
+     <td> <label for="neck">Neck Circumference (cm):</label></td>
+        <td> <input type="number" id="neck" name="neck" required aria-label="Type your neck circumference in cm" /></td>
+        </tr>
+
+        <tr>
+      <td> <label for="waist">Waist Circumference (cm):</label> </td>
+      <td> <input type="number" name="waist" id="waist" required aria-label="Type your waist circumference in cm"/> </td>
+      </tr>
+
+      <tr>
+        <td>
+            <div id="hip-section1" style="display: none;">
+                <label for="hip">Hip Circumference (cm):</label>
+                </div>
+        </td>
+        <td>
+            <div id="hip-section2" style="display: none;">
+                <input type="number" name="hip" id="hip" aria-label="Type your hip circumference in cm"/>
+                </div>
+        </td>
+      
+      </tr>
+
+      <tr>
+          <td id="buttons"colspan="2" style="text-align:center; padding-top:16px;">
+            <button type="submit" id="bf-btn" class="submit-btn">Calculate</button>
+            <button type="reset" id="reset-btn" class="submit-btn" style="background:#888; margin-left:10px;">Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <div id="result" aria-live="polite">
+    </div>
+
+
+
+  </main>
+  
+
+      <footer role="contentinfo">
+  <section>
+    <h4>Menu</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      
+    </ul>
+  </section>
+  <section>
+    <h4>Contact</h4>
+    <ul>
+      <li>Email & Feedback: <a href="mailto:egeabiad@gmail.com">egeabiad@gmail.com</a></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Credits</h4>
+    <ul>
+      <li>Created by Ege Abiad</li>
+    </ul>
+  </section>
+  <section style="width:100%;text-align:center;margin-top:16px;">
+    <p style="font-size:13px;color:#e0eafc;">&copy; 2025 FitMetricTools. All rights reserved.</p>
+  </section>
+</footer>
+
+
+
+
+    
+    <script src="bf.js" defer></script>
+  
+</body>
+
+
+</html>

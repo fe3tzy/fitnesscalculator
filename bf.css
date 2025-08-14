@@ -1,0 +1,156 @@
+/* === Body Fat Form Styles === */
+
+#bf-form {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top:50px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+#bf-form table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+#bf-form label {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #2c3e50;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+#bf-form input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius:8px;
+}
+
+#bf-form select{
+    margin-top:10px;
+width: 100%;
+height:10%;
+padding: 10px 20px ;
+
+border: 1px solid #ccc;
+border-radius:8px;
+transform: scale(0.99);
+}
+
+#result {
+     margin-top: 24px;
+     margin-bottom: 0;
+  padding: 20px;
+  background-color: #f0f6fc;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  font-size: 1.4em;
+}
+
+#result p {
+  margin: 0 0 10px 0;
+  font-size: 1em;
+}
+
+
+
+#result.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+#bf-chart {
+  margin-top: 40px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#bf-chart h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+#bf-chart table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#bf-chart th,
+#bf-chart td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+#bf-chart thead {
+  background-color: #ecf0f1;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#bf-chart tbody tr.essential {
+  background-color: #d1f7c4;
+}
+
+#bf-chart tbody tr.athletes {
+  background-color: #b3e5fc;
+}
+
+#bf-chart tbody tr.fitness {
+  background-color: #fff9c4;
+}
+
+#bf-chart tbody tr.average {
+  background-color: #ffe0b2;
+}
+
+#bf-chart tbody tr.obese {
+  background-color: #ffcdd2;
+}
+
+#bf-chart td:first-child {
+  font-weight: 600;
+  color: #333;
+}
+
+@media (max-width:566px){
+  #gender{
+    width:100%;
+    padding:30px;
+    transform: scale(120%) !important;
+    margin:20px 28px;
+  }
+  
+  #height, #neck, #waist, #hip{
+
+    transform: scale(120%);
+
+  }
+  #buttons{
+    margin-left:20px;
+    margin-top:-40px;
+    padding-top:0;
+  }
+}

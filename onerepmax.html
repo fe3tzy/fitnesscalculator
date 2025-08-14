@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One-Rep Max Calculator - FitMetricTools</title>
+  <meta name="description" content="Calculate your onerepmax(1REM)" />
+  <meta name="keywords" content="One-Rep Max, fitness, TDEE, health, nutrition, US units, metric units,max,lift,bench press,strength,1RM" />
+  <meta name="author" content="Ege Abiad" />
+  <!-- link canonical -->
+  <meta property="og:title" content="One-Rep Max Calculator" />
+  <meta property="og:description" content="Calculate your onerepmax(1REM)" />
+  <meta property="og:type" content="website" />
+  <!-- link og:url -->
+   <!-- link og:image -->
+  <meta property="og:site_name" content="One-Rep Max Calculator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="One-Rep Max Calculator" />
+  <meta name="twitter:description" content="Calculate your onerepmax(1REM)" />
+  <!-- link twitter:image -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="onerepmax.css"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  
+</head>
+
+<body>
+  <header role="banner">
+    <h1><a id="a-title" href="index.html" aria-label="Homepage link to FitMetricTools">Fit<span class="bold">MetricTools</span></a></h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+
+      <div aria-label="Dropdown" class="dropdown">
+    <button aria-haspopup="true" aria-expanded="false" role="button" class="dropbtn">Calculators ▼
+      <i role="img" aria-hidden="true" class="fa fa-caret-down"></i>
+    </button>
+    <div role="menu" aria-label="Dropdown menu" class="dropdown-content">
+      <a role="menuitem" href="index.html">Calorie Calculator</a>
+      <a role="menuitem" href="bmi.html">BMI Calculator</a>
+      <a role="menuitem" href="macro.html">Macro Calculator</a>
+      <a role="menuitem" href="bf.html">Body Fat Calculator</a>
+      <a style="display: block;"role="menuitem" href="onerepmax.html">One Rep Max(1RM)Calculator</a>
+    </div>
+  </div>
+      <ul class="main-ul" role="menubar" aria-label="Main menu">
+      
+        
+        <li id="nav-about" class="nav-item" role="menuitem"><a href="about.html" aria-label="About">FAQ</a></li>
+        <li class="nav-item" role="menuitem"><a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+     <h2>One-Rep Max (1RM) Calculator</h2>
+  <form id="orm-form" name="orm-form"style="text-align: center; margin:0 auto;">
+    <table style="text-align: center; margin:0 auto;">
+      <tr>
+        <td><label for="units">Unit:</label></td>
+        <td>
+          <select id="units" required>
+            <option value="" disabled selected>Select the unit</option>
+            <option value="kg">Kilograms (kg)</option>
+            <option value="lbs">Pounds (lbs)</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="weight">Weight Lifted:</label></td>
+        <td><input type="number" id="weight" step="0.1" required></td>
+      </tr>
+      <tr>
+        <td><label for="reps">Number of Reps:</label></td>
+        <td><input type="number" id="reps" min="1" max="20" required></td>
+      </tr>
+        <!-- Buttons -->
+        <tr>
+          <td colspan="2" style="text-align:center; padding-top:16px;">
+            <button type="submit" class="submit-btn">Calculate</button>
+            <button type="reset" id="reset-btn" class="submit-btn" style="background:#888; margin-left:10px;">Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <!-- Result Area -->
+    <div id="result" style="text-align: center; padding:30px 10px 0 10px;
+    margin:10px 10px 0 10px; font-size: 1.2em; transition: opacity 0.5s ease; opacity: 0;" aria-live="polite"></div>
+
+
+    <div class="orm-chart">
+  <h3>1RM Percentage Chart</h3>
+  <p>This chart shows estimated working weights based on percentages of your 1RM.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>% of 1RM</th>
+        <th>Weight</th>
+        <th>Typical Reps</th>
+      </tr>
+    </thead>
+    <tbody id="orm-chart-body">
+      <!-- Filled by JS -->
+    </tbody>
+  </table>
+</div>
+
+
+  </div>
+
+  
+
+
+
+</div>
+
+
+
+  <footer>
+  <section>
+    <h4>Menu</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      
+    </ul>
+  </section>
+  <section>
+    <h4>Contact</h4>
+    <ul>
+      <li>Email & Feedback: <a href="mailto:egeabiad@gmail.com">egeabiad@gmail.com</a></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Credits</h4>
+    <ul>
+      <li>Created by <span class="bold">Ege Abiad</span></li>
+    </ul>
+  </section>
+  <section style="width:100%;text-align:center;margin-top:16px;">
+    <p style="font-size:13px;color:#e0eafc;">&copy; 2025 FitMetricTools. All rights reserved.</p>
+  </section>
+</footer>
+
+
+
+
+    
+  <script src="onerepmax.js" ></script>
+
+</body>
+
+
+</html>

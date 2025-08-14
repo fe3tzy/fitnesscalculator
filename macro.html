@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Macro Calculator - FitMetricTools</title>
+  <meta name="description" content="Calculate your daily macronutrients needs easily. Supports US and Metric units." />
+  <meta name="keywords" content="macro calculator, fitness, TDEE, health, nutrition, US units, metric units" />
+  <meta name="author" content="Ege Abiad" />
+  <!-- link canonical -->
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Macro Calculator" />
+  <meta property="og:description" content="Calculate your daily macronutrients needs easily. Supports US and Metric units." />
+  <meta property="og:type" content="website" />
+  <!-- link og:url -->
+  <!-- link og:image -->
+  <meta property="og:site_name" content="Macro Calculator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Macro Calculator" />
+  <meta name="twitter:description" content="Calculate your daily macronutrients needs easily. Supports US and Metric units." />
+  <!-- link twitter:image -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="BMI CHART CSS+JS/bmi-chart.css" />
+  <link rel="stylesheet" href="macro.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header role="banner">
+    <h1><a id="a-title" href="index.html" aria-label="Homepage link to FitMetricTools">Fit<span class="bold">MetricTools</span></a></h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+
+      <div aria-label="Dropdown" class="dropdown">
+    <button aria-haspopup="true" aria-expanded="false" role="button" class="dropbtn">Calculators ▼
+      <i role="img" aria-hidden="true" class="fa fa-caret-down"></i>
+    </button>
+    <div role="menu" aria-label="Dropdown menu" class="dropdown-content">
+      <a role="menuitem" href="index.html">Calorie Calculator</a>
+      <a role="menuitem" href="bmi.html">BMI Calculator</a>
+      <a role="menuitem" href="macro.html">Macro Calculator</a>
+      <a role="menuitem" href="bf.html">Body Fat Calculator</a>
+      <a role="menuitem" href="onerepmax.html">OneRepMax(1RM) Calculator</a>
+
+    </div>
+  </div>
+      <ul class="main-ul" role="menubar" aria-label="Main menu">
+      
+        
+        <li class="nav-item" role="menuitem"><a href="about.html" aria-label="About">FAQ</a></li>
+        <li class="nav-item" role="menuitem"><a href="privacy.html" aria-label="Privacy Policy">Privacy Policy</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Main div -->
+  
+  <div class="container">
+      <h2 id="macro-title">Macro Calculator</h2>
+        <!-- Macro Card -->
+    <div class="macro-info-chart">
+  
+  <div class="macro-row">
+    <div class="macro-card protein">
+      <h3>Protein</h3>
+      <p>4 kcal per gram</p>
+      <ul>
+        <li>Builds & repairs muscle</li>
+        <li>Supports immune function</li>
+        <li>High thermic effect</li>
+      </ul>
+    </div>
+    <div class="macro-card carbs">
+      <h3>Carbohydrates</h3>
+      <p>4 kcal per gram</p>
+      <ul>
+        <li>Primary energy source</li>
+        <li>Fuels brain & muscles</li>
+        <li>Stored as glycogen</li>
+      </ul>
+    </div>
+    <div class="macro-card fats">
+      <h3>Fats</h3>
+      <p>9 kcal per gram</p>
+      <ul>
+        <li>Hormone production</li>
+        <li>Supports cell structure</li>
+        <li>Long-term energy</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- Main Form -->
+    <form  id="macro-form" name="macro-form" aria-labelledby="form-title">
+      <table style="width:100%; border-collapse:separate; border-spacing:0 12px;">
+        <tr>
+          <td><label for="macro-tdee">Your TDEE:</label></td>
+          <td>
+            <input type="number" name="macro-tdee" id="macro-tdee" required aria-label="Enter your TDEE" aria-required="true" min="1000" max="5000" />
+          </td>
+        </tr>
+        
+        <tr>
+          <td><label for="goal">Fitness Goal:</label></td>
+          <td>
+            <select class="macro-select" name="goal" id="goal" required aria-label="Select your goal" aria-required="true">
+              <option value="" disabled selected>Select your goal</option>
+              <option value="cut">Lose Weight</option>
+              <option value="maintain">Maintain Weight</option>
+              <option value="bulk">Gain Weight</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="macro-split">Macro Split Preference:</label></td>
+          <td>
+            <select class="macro-select" name="macro-split" id="macro-split" required aria-label="Select your macro split preference" aria-required="true">
+              <option value="" disabled selected>Select your macro split</option>
+              <option value="high-protein">High Protein</option>
+              <option value="balanced">Balanced</option>
+              <option value="low-carb">Low Carb</option>
+              <option value="custom">Customized</option>
+            </select>
+          </td>
+        </tr>
+
+        <!-- Buttons -->
+        <tr>
+          <td colspan="2" style="text-align:center; padding-top:16px;">
+            <button type="submit" id="macro-btn" class="submit-btn">Calculate</button>
+            <button type="reset" id="reset-btn" class="submit-btn reset" style="background:#888; margin-left:10px;">Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <!-- Result Area -->
+    <div id="result" aria-live="polite"></div>
+
+  </div>
+  
+  <div class="custom-macro container" id="custom-macro" style="display: none;">
+    <h3>Custom Macro Calculator</h3>
+    <form id="custom-macro-form" name="custom-macro-form" aria-labelledby="custom-form-title">
+      <table style="width:100%; border-collapse:separate; border-spacing:0 12px;">
+
+        <tr>
+          <td><label class="custom-label" for="custom-tdee">Your TDEE:</label></td>
+          <td>
+            <input type="number" class="custom" name="custom-tdee" id="custom-tdee" required aria-label="Enter your TDEE" aria-required="true" min="1000" max="5000" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="custom-label" for="custom-macro-protein">Protein %:</label></td>
+          <td><input type="number" class="custom" id="custom-macro-protein" name="custom-macro-protein" min="0" max="100" placeholder="%" /></td>
+        </tr>
+        <tr>
+          <td><label class="custom-label" for="custom-macro-carbs">Carbohydrates %:</label></td>
+          <td><input type="number" class="custom" id="custom-macro-carbs" name="custom-macro-carbs" min="0" max="100" placeholder="%" /></td>
+        </tr>
+        <tr>
+          <td><label class="custom-label" for="custom-macro-fats">Fats %:</label></td>
+          <td><input type="number" class="custom" id="custom-macro-fats" name="custom-macro-fats" min="0" max="100" placeholder="%" /></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align:center; padding-top:16px;">
+            <button type="submit" class="submit-btn submit">Calculate</button>
+            <button type="reset"  id="custom-reset" class="submit-btn reset">Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    
+    <div id="custom-result" aria-live="polite"></div>
+
+
+  </div>
+  
+  <footer role="contentinfo">
+  <section>
+    <h4>Menu</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      
+    </ul>
+  </section>
+  <section>
+    <h4>Contact</h4>
+    <ul>
+      <li>Email & Feedback: <a href="mailto:egeabiad@gmail.com">egeabiad@gmail.com</a></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Credits</h4>
+    <ul>
+      <li>Created by Ege Abiad</li>
+    </ul>
+  </section>
+  <section style="width:100%;text-align:center;margin-top:16px;">
+    <p style="font-size:13px;color:#e0eafc;">&copy; 2025 FitMetricTools. All rights reserved.</p>
+  </section>
+</footer>
+
+
+
+
+
+    <script src="macro.js"></script>
+  
+</body>
+
+
+</html>
